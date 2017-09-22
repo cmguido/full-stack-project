@@ -1,9 +1,9 @@
-class NotesController < OpenReadController
+class NotesController < ProtectedController
   before_action :set_note, only: %i[show update destroy]
 
   # GET /notes
   def index
-    @notes = Note.all
+    @notes = current_user.notes.all
 
     render json: @notes
   end
