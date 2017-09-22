@@ -39,13 +39,14 @@ class NotesController < OpenReadController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_note
-      @note = current_user.notes.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def note_params
-      params.require(:note).permit(:comment, :time)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_note
+    @note = current_user.notes.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def note_params
+    params.require(:note).permit(:comment, :time)
+  end
 end
