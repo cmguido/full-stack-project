@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NotesController < ProtectedController
   before_action :set_note, only: %i[show update destroy]
 
@@ -18,7 +20,7 @@ class NotesController < ProtectedController
     @note = current_user.notes.build(note_params)
 
     if @note.save
-      render json: @note, status: :created, location: @note
+      render json: @note, status: :created
     else
       render json: @note.errors, status: :unprocessable_entity
     end
