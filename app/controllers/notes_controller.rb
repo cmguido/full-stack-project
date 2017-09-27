@@ -5,7 +5,7 @@ class NotesController < ProtectedController
 
   # GET /notes
   def index
-    @notes = current_user.notes.all.order(:created_at)
+    @notes = current_user.notes.all.order('created_at DESC')
 
     render json: @notes
   end
